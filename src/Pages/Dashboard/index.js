@@ -12,10 +12,13 @@
             this.state = {
                 data : []
             }
+
+        
     
 
     
         }
+
 
         componentWillMount() {
       
@@ -48,9 +51,12 @@
     
         render() {
 
+            console.log(this.props.location.state.LoginUser
+            )
+
             
     
-            return (<HeaderBar>
+            return (<HeaderBar user={this.props.location.state.LoginUser}>
             <div className="container-fluid">
             <div className="row">
                 <div className="col-md-12">
@@ -63,7 +69,9 @@
                             <div className="row">
                      
                                 <div className="col-xs-6 col-md-12">
-        <Table  data = {this.state.data}/> 
+        <Table  data = {this.state.data}
+        user={this.props.location.state.LoginUser}
+       /> 
                                  </div>
                             </div>
                            

@@ -17,7 +17,7 @@ class Table extends Component{
     {
            
 
-           const { data }= this.props;
+           const { data,user }= this.props;
         //  console.log("Table Row ----",this.props.data);
         if (!this.props.data) return null
         return(
@@ -32,6 +32,7 @@ class Table extends Component{
                  <th>Full Name</th>
                  <th>Email</th>
                  <th>Status</th>
+                 <th>Action</th>
              </tr>
          </thead>
                <tbody>
@@ -39,7 +40,7 @@ class Table extends Component{
           
 
                     
-                     {data.map((person, i) => <TableRow key = {i} data = {person} />)}  
+                     {data.map((person, i) => <TableRow key = {i} data = {person} currentUser={user} />)}  
                </tbody>
             </table>
         </div>    

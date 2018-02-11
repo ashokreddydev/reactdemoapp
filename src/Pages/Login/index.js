@@ -17,7 +17,8 @@ class Login extends Component {
         this.state = {
             errors:[],
             LoginPageRedirect:false,
-            Message:""
+            Message:"",
+            currentUser:{}
 
 
         }
@@ -61,11 +62,13 @@ class Login extends Component {
     componentWillReceiveProps(nextProps) {
         console.log(nextProps.UserLoginData)
         this.setState({ LoginPageRedirect:false})
+        this.state.currentUser={};
 
         if(nextProps.UserLoginData.status == "200")
         {
             this.setState({ LoginPageRedirect:true})
             this.setState({ Message:""})
+            this.state.currentUser=nextProps.UserLoginData.Data
 
         }
         if(nextProps.UserLoginData.status == "400")
@@ -84,7 +87,8 @@ class Login extends Component {
         {
 
             return   <Redirect to={{
-        pathname: '/Dashboard' 
+        pathname: '/Dashboard' ,
+        state: { LoginUser: this.state.currentUser }
         
       }}/>
         }
