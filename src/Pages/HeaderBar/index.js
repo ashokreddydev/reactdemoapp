@@ -24,7 +24,8 @@ class HeaderBar extends Component {
         <div className="row-fluid">
             <div className="span12">
                 <div className="span6">
-                    <h1 className="muted">{this.props.user.myname}</h1>
+                   {/* <h1 className="muted">{this.props.user.myname}</h1> */}
+                    <h1 className="muted">Ashok</h1>
                 </div>
 
               

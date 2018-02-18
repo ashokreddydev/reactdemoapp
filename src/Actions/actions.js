@@ -31,7 +31,8 @@ export function UserLoginFetchData(url, payload) {
             credentials: "same-origin",
             headers: {
                 'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'AuthKey':'bvqe6S0TqHh7DlWFQ3nE+8QC+FZ7VTnxwUnFIwIl3WM='
             }
         })
             .then((response) => {

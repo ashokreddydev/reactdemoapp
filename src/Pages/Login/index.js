@@ -48,10 +48,10 @@ class Login extends Component {
         {
 
            var userLogin = {
-            "username":username,
-            "password":password
+            "Email":username,
+            "Password":password
             }
-            let Url =Constants.ApiCallUrl + 'user/login';
+            let Url =Constants.API_OTHER_URL + 'Profile/Login';
            // console.log(Constants.ApiCallUrl)
 			this.props.dispatch(UserLoginFetchData(Url, userLogin));
         }
@@ -64,16 +64,16 @@ class Login extends Component {
         this.setState({ LoginPageRedirect:false})
         this.state.currentUser={};
 
-        if(nextProps.UserLoginData.status == "200")
+        if(nextProps.UserLoginData.Success == "True")
         {
             this.setState({ LoginPageRedirect:true})
             this.setState({ Message:""})
-            this.state.currentUser=nextProps.UserLoginData.Data
+            this.state.currentUser=nextProps.UserLoginData
 
         }
-        if(nextProps.UserLoginData.status == "400")
+        if(nextProps.UserLoginData.Success= "False")
         {
-            this.setState({ Message:nextProps.UserLoginData.message})
+            this.setState({ Message:nextProps.UserLoginData.Result})
 
 
         }
